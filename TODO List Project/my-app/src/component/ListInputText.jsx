@@ -4,10 +4,19 @@ const ListInputText = (props) => {
   const [inputText, setInputText] = useState('');
 
   const handleKeyPress = (e) => {
+   if(inputText === ''){
+     if (e.keyCode === 13) {
+       alert('Please fill input field')
+     
+    }
+   }
+   else{
     if (e.keyCode === 13) {
       props.addList(inputText)
       setInputText('');
     }
+   }
+    
   }
   return (
     <div className='input-box'>
@@ -18,6 +27,9 @@ const ListInputText = (props) => {
         if (inputText !== '') {
           props.addList(inputText)
           setInputText('');
+        }
+        else{
+          alert('Please fill input filed')
         }
       }}>Add</button>
 
